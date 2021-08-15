@@ -11,8 +11,8 @@ jobs:
     strategy:
       matrix:
         image:
-          - name: latest
-            python_version: "3.8"
+          # - name: latest
+          #   python_version: "3.8"
           - name: python3.8
             python_version: "3.8"
           - name: python3.7

@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - dockerx
 
 jobs:
   build:

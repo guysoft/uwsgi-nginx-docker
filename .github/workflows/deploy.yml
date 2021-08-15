@@ -40,7 +40,7 @@ jobs:
       - name: Build and push
         env:
           NAME: ${{ matrix.image.name }}
-          DOCKERFILE: ${{ matrix.image.dockerfile }}
+          DOCKERFILE: ${{ matrix.image }}.dockerfile
           PYTHON_VERSION: ${{ matrix.image.python_version }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
@@ -49,7 +49,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: docker-images
-          file: docker-images/${{ matrix.image.dockerfile }}
+          file: docker-images/${{ matrix.image.python_version }}.dockerfile
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
           tags: guysoft/uwsgi-nginx:${{ matrix.image.name }}
